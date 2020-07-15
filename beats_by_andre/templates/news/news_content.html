@@ -1,5 +1,79 @@
+<style type="text/css">
+	.announcement {
+		background-color: yellow;
+		width: 50%;
+		margin-top: 5px;
+		border: 2px solid black;
+	}
+	#date {
+		float: left;
+	}
+	#title {
+		float: left;
+	}
+	#content_block {
+		float: none;
+	}
+
+
+
+
+
+
+</style>
+
 {% extends base.html %}
 
-{% block title %} {% endblock %}
+{% block title %} News list {% endblock %}
 
-{% block content %} {% {% endblock %}
+{% block content %} 
+	<div class="new_text">
+	{% if latest_news_list %}
+		{% for a in latest_news_list %}
+		<div class="announcement">
+			<div class="announcement_part" id="date">{{a.date}}</div>
+			<div class="announcement_part" id="title">{{a.title}}</div>
+			<div class="announcement_part" id="content_block">
+			{{a.content}}
+			</div>
+		</div>
+		{% endfor %}
+	{% else %}
+		NOTHING HERE
+	{% endif %}
+	</div>
+
+	<div class="new_track">
+	{% if latest_tracks_list %}
+		{% for b in latest_tracks_list %}
+		<div class="announcement">
+			<div class="announcement_part" id="date">{{b.date}}</div>
+			<div class="announcement_part" id="title">{{b.title}}</div>
+			<div class="announcement_part" id="content_block">
+			{{c.content}}
+			</div>
+		</div>
+		{% endfor %}
+	{% else %}
+		NOTHING HERE
+	{% endif %}
+	</div>
+
+	<div class="new_video">
+	{% if latest_videos_list %}
+		{% for c in latest_videos_list %}
+		<div class="announcement">
+			<div class="announcement_part" id="date">{{c.date}}</div>
+			<div class="announcement_part" id="title">{{c.title}}</div>
+			<div class="announcement_part" id="content_block">
+				{{c.content}}
+
+			</div>
+		</div>
+		{% endfor %}
+	{% else %}
+		NOTHING HERE
+	{% endif %}
+	</div>
+
+ {% endblock %}

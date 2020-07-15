@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class New_Text(models.Model):
 	title = models.CharField('TITLE', max_length = 50)
-	text = models.TextField('TEXT', max_length = 1000)
+	content = models.TextField('TEXT', max_length = 1000)
 	date = models.DateTimeField('DATE')
 
 	def was_published_recently(self):
@@ -23,7 +23,7 @@ class New_Track(models.Model):
 	title = models.CharField('TITLE', max_length = 50)
 	date = models.DateTimeField('DATE')
 	duration = models.IntegerField('DURATION')
-	track_file = models.FileField(upload_to = 'tracks')
+	content = models.FileField(upload_to = 'tracks')
 
 	def __str__(self):
 		return self.title
@@ -39,7 +39,7 @@ class New_Track(models.Model):
 class New_Video(models.Model):
 	title = models.CharField('TITLE', max_length = 50)
 	date = models.DateTimeField('DATE')
-	link = models.CharField('LINK', max_length = 1000)
+	content = models.CharField('LINK', max_length = 1000)
 
 	def __str__(self):
 		return self.title

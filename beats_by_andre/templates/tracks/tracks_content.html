@@ -1,0 +1,49 @@
+<style type="text/css">
+	.track {
+		background-color: yellow;
+		width: 50%;
+		margin-top: 5px;
+		border: 2px solid black;
+	}
+	#date {
+		float: left;
+	}
+	#title {
+		float: left;
+	}
+	#content_block {
+		float: none;
+	}
+
+
+
+
+
+
+</style>
+
+{% extends base.html %}
+
+{% block title %} News list {% endblock %}
+
+{% block content %} 
+
+	{% if all_tracks %}
+		{% for a in all_tracks %}
+			<div class="track">
+				<div class="track_part" id="date"></div>
+				<div class="track_part" id="title">{{a.title}}</div>
+				<div class="content_block">
+					<audio controls="controls">
+						<source src="{% url a %}" type="audio/mpeg">
+
+					</audio>
+
+				</div>
+
+			</div>
+		{% endfor %}
+	{% else %}
+		NOTHING HERE
+	{% endif %}
+ {% endblock %}
