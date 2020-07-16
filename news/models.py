@@ -22,7 +22,6 @@ class New_Text(models.Model):
 class New_Track(models.Model):
 	title = models.CharField('TITLE', max_length = 50)
 	date = models.DateTimeField('DATE')
-	duration = models.IntegerField('DURATION')
 	content = models.FileField(upload_to = 'tracks')
 
 	def __str__(self):
@@ -60,3 +59,4 @@ class Track(models.Model):
 
 	def was_published_recently(self):
 		return self.pub_date >= (timezone.now() - datetime.timedelta(days = 1))
+		
