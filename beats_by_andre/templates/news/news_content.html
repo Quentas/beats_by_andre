@@ -4,6 +4,7 @@
 		width: 50%;
 		margin-top: 10px;
 		border: 2px solid black;
+		padding: 2px 2px 2px 2px;
 	}
 	#date {
 		width: 50%;
@@ -41,7 +42,7 @@
 		<div class="announcement">
 			<div class="announcement_part" id="date">{{a.date}}</div>
 			<div class="announcement_part" id="title">{{a.title}}</div>
-			<div class="announcement_part" id="content_block">{{a.content}}</div>
+			<div class="announcement_part" id="content_block">{{a.content | linebreaksbr }}</div>
 		</div>
 		{% endfor %}
 	{% else %}

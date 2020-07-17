@@ -11,12 +11,6 @@
 	#content_block {
 		float: none;
 	}
-
-
-
-
-
-
 </style>
 
 {% extends "base.html" %}
@@ -29,14 +23,12 @@
 		{% for a in all_tracks %}
 			<div class="track">
 				<div class="track_part" id="title">{{a.title}}</div>
-				<div class="content_block">
+				<div class="content_block"><br>
+					{{a.content}}
 					<audio controls="controls">
-						<!--<source src="{% url a.content %}" type="audio/mpeg"> -->
-
+						<source src="{{MEDIA_URL}}{{a.content}}" type="audio/mpeg">
 					</audio>
-
 				</div>
-
 			</div>
 		{% endfor %}
 	{% else %}
