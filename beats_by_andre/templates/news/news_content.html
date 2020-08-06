@@ -5,6 +5,7 @@
 		margin-top: 10px;
 		border: 2px solid black;
 		padding: 2px 2px 2px 2px;
+		float: left;
 	}
 	#date {
 		width: 50%;
@@ -30,19 +31,18 @@
 
 
 </style>
-
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %} News list {% endblock %}
 
 {% block content %} 
 	<div class="new_text">
 	{% if latest_news_list %}
-		{% for a in latest_news_list %}
+		{% for text in latest_news_list %}
 		<div class="announcement">
-			<div class="announcement_part" id="date">{{a.date}}</div>
-			<div class="announcement_part" id="title">{{a.title}}</div>
-			<div class="announcement_part" id="content_block">{{a.content | linebreaksbr }}</div>
+			<div class="announcement_part" id="date">{{text.date}}</div>
+			<div class="announcement_part" id="title">{{text.title}}</div>
+			<div class="announcement_part" id="content_block">{{text.content | linebreaksbr }}</div>
 		</div>
 		{% endfor %}
 	{% else %}
@@ -53,11 +53,15 @@
 
 	<div class="new_track">
 	{% if latest_tracks_list %}
-		{% for b in latest_tracks_list %}
+		{% for track in latest_tracks_list %}
 		<div class="announcement">
-			<div class="announcement_part" id="date">{{b.date}}</div>
-			<div class="announcement_part" id="title">{{b.title}}</div>
-			<!-- <div class="announcement_part" id="content_block">{{c.content}}</div> -->
+			<div class="announcement_part" id="date">{{track.date}}</div>
+			<div class="announcement_part" id="title">{{track.title}}</div>
+			<div class="announcement_part" id="content_block">
+			<audio controls="controls">
+				<source src="{{MEDIA_URL}}{{track.content}}" type="audio/mpeg">
+			</audio>
+		</div>
 		</div>
 		{% endfor %}
 	{% else %}
@@ -69,16 +73,20 @@
 
 	<div class="new_video">
 	{% if latest_videos_list %}
-		{% for c in latest_videos_list %}
+		{% for video in latest_videos_list %}
 		<div class="announcement">
-			<div class="announcement_part" id="date">{{c.date}}</div>
-			<div class="announcement_part" id="title">{{c.title}}</div>
-			<div class="announcement_part" id="content_block">{{c.content}}</div>
+			<div class="announcement_part" id="date">{{video.date}}</div>
+			<div class="announcement_part" id="title">{{video.title}}</div>
+			<div class="announcement_part" id="content_block">
+				<video>
+					<source src="{{video.content}}">
+				</video>
+				{{video.content}}
+			</div>
 		</div>
 		{% endfor %}
 	{% else %}
 		NOTHING HERE
 	{% endif %}
 	</div>
-
  {% endblock %}

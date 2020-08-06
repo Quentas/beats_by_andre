@@ -4,6 +4,7 @@
 		width: 50%;
 		margin-top: 5px;
 		border: 2px solid black;
+		float: left;
 	}
 	#title {
 		float: left;
@@ -14,6 +15,8 @@
 </style>
 
 {% extends "base.html" %}
+
+{% load static %}
 
 {% block title %} Track list {% endblock %}
 
@@ -34,5 +37,5 @@
 	{% else %}
 		NOTHING HERE
 	{% endif %}
-	
+
  {% endblock %}
