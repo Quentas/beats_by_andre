@@ -3,17 +3,18 @@
 <html>
 <head>
 	<title>{% block title %} Site name {% endblock %}</title>
-	
-	<link rel="stylesheet" type="text/css" href="{% static '/styles/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/styles/header_footer_and_bg.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/styles/content.css' %}">
 
 </head>
 <body>
 	<header>
-		<div class="nav_button"></div>
-		<div class="nav_button"></div>
-		<div class="nav_button"></div>
+	<div class="menu">
+		<div class="nav_button"><a href="#">NEWS</a></div>
+		<div class="nav_button"><a href="#">TRACKS</a></div>
+		<div class="nav_button"><a href="#">AUTHOR</a></div>
+	</div>
 	</header>
-{% block menu %} {% endblock %}
 
 {% block content %}{% endblock %}
 
