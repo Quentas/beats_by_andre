@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} About author {% endblock %}
+
+{% block content %} 
+
+	{% if author_info %}
+		<div class="content">
+		<!--
+		<img src="{{MEDIA_URL}}{{author_info.author_photo}}">
+	-->
+		<p>{{author_info.author_pseudo}}</p>
+		<p>{{author_info.author_name}}</p>
+		<p>{{author_info.author_text | linebreaksbr}}</p>
+		<div class="links_block">
+			{% for link in links %}
+				<a href="{{link}}">{{link}}</a><br>
+			{% endfor %}
+		</div>
+		</div>
+	{% else %}
+		NOTHING HERE
+	{% endif %}
+
+{% endblock %}
