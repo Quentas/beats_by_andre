@@ -8,9 +8,9 @@
 
 	{% if author_info %}
 		<div class="content">
-		<!--
-		<img src="{{MEDIA_URL}}{{author_info.author_photo}}">
-	-->
+		
+		<img src="{{MEDIA_URL}}{{author_info.author_photo}}" title="jebalo" width="20%">
+	
 		<p>{{author_info.author_pseudo}}</p>
 		<p>{{author_info.author_name}}</p>
 		<p>{{author_info.author_text | linebreaksbr}}</p>
