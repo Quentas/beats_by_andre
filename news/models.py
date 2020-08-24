@@ -23,6 +23,8 @@ class New_Track(models.Model):
 	title = models.CharField('TITLE', max_length = 50)
 	date = models.DateTimeField('DATE')
 	content = models.FileField(upload_to = 'tracks')
+	likes = models.IntegerField('LIKES')
+
 
 	def __str__(self):
 		return self.title
@@ -49,16 +51,6 @@ class New_Video(models.Model):
 	class  Meta:
 		verbose_name = 'Videos'
 		verbose_name_plural = 'Videos'
-
-		
-class Track(models.Model):
-	title = models.CharField('TITLE', max_length = 50)
-	date = models.DateTimeField('DATE')
-	duration = models.IntegerField('DURATION')
-	likes = models.IntegerField('LIKES')
-
-	def was_published_recently(self):
-		return self.pub_date >= (timezone.now() - datetime.timedelta(days = 1))
 		
 
 class Author(models.Model):
