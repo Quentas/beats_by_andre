@@ -26,9 +26,13 @@ def track_list(request):
 
 def about_author(request):
 	try:
-		author_info = Author.objects.get(id = 1)
-		links = author_info.author_links.split(";;")
+		author_info = Author.objects.all().order_by('-id')[0]
+		try:
+			links = author_info.author_links.split(";;")
+			return render(request, 'author/about_author.html', {'author_info' : author_info , 'links' : links})
+		except:
+			return render(request, 'author/about_author.html', {'author_info' : author_info})
 	except:
 		raise Http404("NOT FOUND")
-	return render(request, 'author/about_author.html', {'author_info' : author_info , 'links' : links})
+	
 	

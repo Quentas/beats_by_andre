@@ -55,10 +55,10 @@ class New_Video(models.Model):
 
 class Author(models.Model):
 	author_pseudo = models.CharField('AUTHOR PSEUDO', max_length = 50)
-	author_name = models.CharField('AUTHOR NAME', max_length = 50)
-	author_photo = models.ImageField(upload_to = 'images')
-	author_text = models.TextField('TEXT', max_length = 5000)
-	author_links = models.TextField('LINKS (separate with \';;\')', max_length = 2000)
+	author_name = models.CharField('AUTHOR NAME', max_length = 50, blank = True)
+	author_photo = models.ImageField(upload_to = 'images', blank = True)
+	author_text = models.TextField('TEXT', max_length = 5000 , blank=True)
+	author_links = models.TextField('LINKS (separate with \';;\')', max_length = 2000 , blank = True)
 
 	class Meta:
 		verbose_name = 'Author'
