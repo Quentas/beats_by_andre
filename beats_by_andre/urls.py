@@ -20,8 +20,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls), # change this maybe to some 'dungeon_master_site'
-    path('', include('news.urls')),
+    path('admin/', admin.site.urls), 
+    path('', include('news.urls'))
 ]
 
 if settings.DEBUG:

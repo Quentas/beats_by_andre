@@ -7,10 +7,11 @@ header {
 
 .nav_button {
 	height: 50px;
-	width: 150px;
+	width: 11%;
+
 	float: left; 
 	margin-top: 10px;
-	margin-left: 20px;
+	margin-left: 13%;
 	border: 2px solid black;
 	border-radius: 50px;
 	background-color: yellow;
@@ -20,4 +21,8 @@ header {
 a {
 	text-decoration: none;
 	color: black;
+}
+
+.nav_button a {
+	margin-top: 30%;
 }

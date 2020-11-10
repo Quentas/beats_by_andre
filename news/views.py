@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import New_Text, New_Video, New_Track, Author
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.utils import timezone
+
 
 
 def news_list(request):
@@ -34,5 +35,12 @@ def about_author(request):
 			return render(request, 'author/about_author.html', {'author_info' : author_info})
 	except:
 		raise Http404("NOT FOUND")
-	
-	
+
+def home (request):
+	return redirect('news_list/')
+'''	
+def redirect_view(request):
+	response = redirect('news_content.html')
+	return response
+'''
+

@@ -45,10 +45,13 @@
 			<div class="announcement_part" id="date">{{video.date}}</div>
 			<div class="announcement_part" id="title">{{video.title}}</div>
 			<div class="announcement_part" id="content_block">
+		<iframe width="789" height="444" src="{{video.content}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		
+<!--
 				<video>
+
 					<source src="{{video.content}}">
 				</video>
-				{{video.content}}
+	-->			{{video.content}}
 			</div>
 		</div>
 		{% endfor %}
